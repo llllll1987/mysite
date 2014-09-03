@@ -1,0 +1,20 @@
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+
+<p>You searched for: <strong>{{ query }}</strong></p>
+
+{% if boards %}
+    <p>Found {{ boards|length }} book{{ boards|pluralize }}.</p>
+    <ul>
+        {% for board in boards %}
+        <li>{{ board.caption }} Owner is {{ board.author }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    No Result matched your search.
+{% endif %}
+</body>
+</html>
