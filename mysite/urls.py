@@ -17,4 +17,5 @@ urlpatterns = patterns('',
     url(r'^base/$',base),
     url(r'^searchform/$',search_form,name = 'searchform'),
     url(r'^search/$',search),
+    url(r'^boardlist/$',board_list,name = 'boardlist'),
 )

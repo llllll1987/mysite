@@ -33,3 +33,15 @@ class Blog(models.Model):
 
     def __unicode__(self):
         return u'%s %s %s' % (self.caption, self.author, self.publish_time)
+
+
+class CMC_Board(models.Model):
+    """docstring for Boards"""
+    cmc_lab_ref = models.CharField(max_length=10)
+    cmc_sn = models.CharField(max_length=11)
+    cmc_mac = models.CharField(max_length=15)
+    cmc_owner = models.CharField(max_length=50)
+    cmc_note = models.TextField()
+
+    def __unicode__(self):
+        return u'%s %s' % (self.cmc_lab_ref, self.cmc_sn)
