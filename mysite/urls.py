@@ -18,4 +18,7 @@ urlpatterns = patterns('',
     url(r'^searchform/$',search_form,name = 'searchform'),
     url(r'^search/$',search),
     url(r'^boardlist/$',board_list,name = 'boardlist'),
+    ( r'^js/(?P<path>.*)$', 'django.views.static.serve',
+        { 'document_root': '/Users/gefli/www/djcode/mysite/mysite/templates/static/media/js/' }),
+    (r'^css/(?Ppath.*)$', 'django.views.static.serve', {'document_root': '/Users/gefli/www/djcode/mysite/mysite/templates/static/media/css/'}),
 )
