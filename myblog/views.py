@@ -2,7 +2,7 @@
 # Create your views here.
 
 from django.shortcuts import render_to_response,HttpResponse
-from myblog.models import Blog,CMC_Board
+from myblog.models import Blog,Zhiwei_CMC_Board,CMC_Board,SFPVendor,SFP
 
 
 def blog_list(request):
@@ -26,6 +26,16 @@ def search(request):
 	            {'boards': boards, 'query': q})
 		return render_to_response('search_form.html', {'errors': errors})
 
-def board_list(request):
+def zhiwei_board_list(request):
+    cmc_boards = Zhiwei_CMC_Board.objects.all()
+    return render_to_response("zhiwei_board_list.html", {"cmc_boards": cmc_boards})
+
+
+def board_tracking(request):
     cmc_boards = CMC_Board.objects.all()
-    return render_to_response("board_list.html", {"cmc_boards": cmc_boards})
+    return render_to_response("board_tracking.html", {"cmc_boards": cmc_boards})
+
+def sfp_tracking(request):
+    sfps = SFP.objects.all()
+    return render_to_response("sfp_tracking.html", {"sfps": sfps})
+

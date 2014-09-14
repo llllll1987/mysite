@@ -35,7 +35,7 @@ class Blog(models.Model):
         return u'%s %s %s' % (self.caption, self.author, self.publish_time)
 
 
-class CMC_Board(models.Model):
+class Zhiwei_CMC_Board(models.Model):
     """docstring for Boards"""
     cmc_lab_ref = models.CharField(max_length=10)
     cmc_sn = models.CharField(max_length=11)
@@ -45,3 +45,40 @@ class CMC_Board(models.Model):
 
     def __unicode__(self):
         return u'%s %s' % (self.cmc_lab_ref, self.cmc_sn)
+
+
+class CMC_Board(models.Model):
+    """docstring for Boards"""
+    cmc_sn = models.CharField(max_length=11)
+    cmc_lab_ref = models.CharField(max_length=10)
+    cmc_mac = models.CharField(max_length=18)
+    cmc_owner = models.CharField(max_length=50)
+    update_time = models.DateTimeField(auto_now=True)
+    cmc_note = models.TextField()
+
+    def __unicode__(self):
+        return u'%s %s' % (self.cmc_sn, self.cmc_owner) 
+
+class SFPVendor(models.Model):
+    """docstring for Author"""
+    vendor = models.CharField(max_length=30)
+    mpn = models.CharField(max_length=30)
+    optical_type = models.CharField(max_length=30)
+    is_cisco_part = models.BooleanField()
+
+    def __unicode__(self):
+        return u'%s' % (self.mpn)
+
+
+class SFP(models.Model):
+    """docstring for Boards"""
+    sfp_sn = models.CharField(max_length=18)
+    sfp_mpn = models.ForeignKey(SFPVendor)
+    sfp_owner = models.ForeignKey(Author)
+    sfp_update_time = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return u'%s %s' % (self.sfp_sn, self.sfp_owner)
+
+
+

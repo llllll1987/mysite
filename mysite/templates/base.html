@@ -32,10 +32,10 @@
 $(document).ready(function() {
   $('#example').dataTable({
         lengthChange: false,
-        "pageLength": 20,
+        "pageLength": 30,
         "autoWidth": false,
         "columnDefs": [
-            { "targets": [ 4 ],
+            { "targets": [ 5 ],
               "width": "20%",
               "orderable": false  }]
   });
@@ -78,15 +78,11 @@ $(document).ready(function() {
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
           <br/><br/>
-            <li class="active"><a href="#">Overview</a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Analytics</a></li>
-            <li><a href="#">Export</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
+            <li class="active"><a href="http://127.0.0.1:8000/base/">Base View</a></li>
+            <li><a href="http://127.0.0.1:8000/zhiwei_board_list/">Zhiwei's Board List</a></li>
+            <li><a href="http://127.0.0.1:8000/board_tracking">After FCS Borad Tracking</a></li>
+            <li><a href="http://127.0.0.1:8000/admin">Admin</a></li>
+            <li><a href="#">SFP Module Tracking</a></li>
           </ul>
         </div>
         <div class="col-sm-9 col-md-10 main">

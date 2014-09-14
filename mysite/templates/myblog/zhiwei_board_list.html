@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}  CMC Board Tracking list {% endblock %}
+
+{% block BoardList %} 
+<p>
+<h2 class="sub-header">Status Tracking</h2>
+</p>
+	  <!-- <div class="table-responsive"> -->
+	  <p>
+	    <table id="example" class="row-border compact hover nowrap " cellspacing="0" width="100%">
+	    <!-- <table id="example" class="display table-hover" cellspacing="3" width="100%" > -->
+	      <thead>
+	        <tr>
+	          <th>Lab Ref</th>
+	          <th>SN</th>
+	          <th>MAC</th>
+	          <th>Owner</th>
+	          <th>Update Date</th>
+	          <th>Status</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+
+    {% for board in cmc_boards %}
+    <tr>
+	  <td align="center">{{ board.cmc_lab_ref }}</td>
+	  <td>{{ board.cmc_sn }}</td>
+	  <td>{{ board.cmc_mac }}</td>
+	  <td align="center">{{ board.cmc_owner }}</td>
+	  <td align="center">2014/09/05</td>
+	  <td><button type="button" class="btn btn-sm btn-success">Success</button></td>
+	</tr>
+    {% endfor %}     
+
+          </tbody>
+        </table>
+       </p>
+      <!-- </div>   -->
+{% endblock %}
+
+<table id="example" class="display dataTable" cellspacing="0" width="100%" role="grid" aria-describedby="example_info" style="width: 100%;">
+
+
+

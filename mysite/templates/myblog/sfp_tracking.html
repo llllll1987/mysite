@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}  CMC Board Tracking list {% endblock %}
+
+{% block BoardList %} 
+<p>
+<h2 class="sub-header">C-Docsis 1.1 SFP Status Tracking</h2>
+</p>
+	  <!-- <div class="table-responsive"> -->
+	  <p>
+	    <table id="example" class="row-border compact hover nowrap " cellspacing="0" width="100%">
+	    <!-- <table id="example" class="display table-hover" cellspacing="3" width="100%" > -->
+	      <thead>
+	        <tr>
+	          <th>SN</th>
+	          <th>MPN</th>
+	          <th>Owner</th>
+	          <th>Update Date</th>
+	          <th>Status</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+
+    {% for sfp in sfps %}
+    <tr>
+    	<td align="center">{{ sfp.sfp_sn }}</td>
+		<td align="center">{{ sfp.sfp_mpn }}</td>
+		<td align="center">{{ sfp.sfp_owner }}</td>
+		<td align="center">{{sfp.sfp_update_time}}</td>
+		<td><button type="button" class="btn btn-sm btn-success">Success</button></td>
+	</tr>
+    {% endfor %}     
+
+          </tbody>
+        </table>
+       </p>
+      <!-- </div>   -->
+{% endblock %}
+
+<table id="example" class="display dataTable" cellspacing="0" width="100%" role="grid" aria-describedby="example_info" style="width: 100%;">
+
+
+
