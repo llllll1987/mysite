@@ -37,5 +37,6 @@ def board_tracking(request):
 
 def sfp_tracking(request):
     sfps = SFP.objects.all()
-    return render_to_response("sfp_tracking.html", {"sfps": sfps})
+    sfpvendors = SFPVendor.objects.all()
+    return render_to_response("sfp_tracking.html", {"sfps": sfps, "sfpvendors": sfpvendors })
 
