@@ -35,7 +35,17 @@ $(document).ready(function() {
         "pageLength": 30,
         "autoWidth": false,
         "columnDefs": [
-            { "targets": [ 6 ],
+            { "targets": [ 0 ],
+                  "width": "10%"},
+            { "targets": [ 1 ],
+              "width": "10%"},
+            { "targets": [ 2 ],
+            "width": "10%" },
+            { "targets": [ 3 ],
+              "width": "10%"},
+            { "targets": [ 4],
+              "width": "10%" },
+            { "targets": [ 5 ],
               "width": "20%",
               "orderable": false  }]
   });
@@ -43,6 +53,22 @@ $(document).ready(function() {
 
 </script>
 
+
+<script type="text/javascript" language="javascript" class="init">
+
+$(document).ready(function() {
+  $('#sfp_tracking_table').dataTable({
+        lengthChange: false,
+        "pageLength": 30,
+        "autoWidth": false,
+        "columnDefs": [
+            { "targets": [ 6 ],
+              "width": "20%",
+              "orderable": false  }]
+  });
+} );
+
+</script>
 
     <title>{% block title %}  {% endblock %}</title>
 </head>

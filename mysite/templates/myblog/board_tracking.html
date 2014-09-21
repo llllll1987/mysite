@@ -1,5 +1,22 @@
 {% extends "base.html" %}
 
+
+<script type="text/javascript" language="javascript" class="init">
+
+$(document).ready(function() {
+  $('#board_tracking_table').dataTable({
+        lengthChange: false,
+        "pageLength": 30,
+        "autoWidth": false,
+        "columnDefs": [
+            { "targets": [ 5 ],
+              "width": "20%",
+              "orderable": false  }]
+  });
+} );
+
+</script>
+
 {% block title %}  CMC Board Tracking list {% endblock %}
 
 {% block BoardList %} 
@@ -10,7 +27,7 @@
 
 	  <!-- <div class="table-responsive"> -->
 	  <p>
-	    <table id="example" class="row-border compact hover nowrap " cellspacing="0" width="100%">
+	    <table id="board_tracking_table" class="row-border compact hover nowrap " cellspacing="0" width="100%">
 	    <!-- <table id="example" class="display table-hover" cellspacing="3" width="100%" > -->
 	      <thead>
 	        <tr>

@@ -1,0 +1,40 @@
+sqlite> .dump myblog_sfp
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE "myblog_sfp" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "sfp_sn" varchar(18) NOT NULL,
+    "sfp_mpn_id" integer NOT NULL REFERENCES "myblog_sfpvendor" ("id"),
+    "sfp_owner_id" integer NOT NULL REFERENCES "myblog_author" ("id"),
+    "sfp_update_time" datetime NOT NULL
+);
+INSERT INTO "myblog_sfp" VALUES(3,'PS52BPJ',3,1,'2014-09-15 08:14:09.283068');
+INSERT INTO "myblog_sfp" VALUES(4,'PS60GFM',3,1,'2014-09-15 08:14:33.477264');
+INSERT INTO "myblog_sfp" VALUES(5,'E9D2006164',6,1,'2014-09-17 07:48:22.274455');
+INSERT INTO "myblog_sfp" VALUES(6,'E9D2006165',6,1,'2014-09-17 07:48:35.077375');
+INSERT INTO "myblog_sfp" VALUES(7,'E9R2018230',1,1,'2014-09-17 07:50:47.271205');
+INSERT INTO "myblog_sfp" VALUES(8,'E9R2018230',1,1,'2014-09-17 07:50:58.124976');
+INSERT INTO "myblog_sfp" VALUES(9,'E4T2006910',5,1,'2014-09-17 07:52:10.476927');
+INSERT INTO "myblog_sfp" VALUES(10,'E4T2006817',5,1,'2014-09-17 07:52:44.856585');
+CREATE INDEX "myblog_sfp_fc6dc59a" ON "myblog_sfp" ("sfp_mpn_id");
+CREATE INDEX "myblog_sfp_08733b59" ON "myblog_sfp" ("sfp_owner_id");
+COMMIT;
+
+
+sqlite> .dump myblog_sfpvendor
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE "myblog_sfpvendor" (
+    "id" integer NOT NULL PRIMARY KEY,
+    "vendor" varchar(30) NOT NULL,
+    "mpn" varchar(30) NOT NULL,
+    "optical_type" varchar(30) NOT NULL,
+    "is_cisco_part" bool NOT NULL
+);
+INSERT INTO "myblog_sfpvendor" VALUES(1,'Source Photonics','SPL-34-GB-BX-IDFM','BX-U',0);
+INSERT INTO "myblog_sfpvendor" VALUES(2,'NEOPHOTONICS CORPORATION','PTB3370553CN0CS1','BX-U',1);
+INSERT INTO "myblog_sfpvendor" VALUES(3,'Finisar','FTLF1318P3BTL-CD','LX',1);
+INSERT INTO "myblog_sfpvendor" VALUES(4,'Source Photonics','SP-GB-EX-IDFC','EX',0);
+INSERT INTO "myblog_sfpvendor" VALUES(5,'Source Photonics','SPL-43-GB-BX-IDFM','BX-D',0);
+INSERT INTO "myblog_sfpvendor" VALUES(6,'Source Photonics','SP-GB-LX-IDFN','LX',0);
+COMMIT;
