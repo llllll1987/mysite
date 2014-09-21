@@ -14,7 +14,9 @@
 	        <tr>
 	          <th>SN</th>
 	          <th>MPN</th>
-	          <th>Owner</th>
+	          <th>Optical Type</th>
+	          <th>Vendor</th>
+	          <th>Owner</th> 
 	          <th>Update Date</th>
 	          <th>Status</th>
 	        </tr>
@@ -24,7 +26,9 @@
 		    <tr>
 		    	<td align="center">{{ sfp.sfp_sn }}</td>
 				<td align="center">{{ sfp.sfp_mpn }}</td>
-				<td align="center">{{ sfp.sfp_owner }}</td>
+				<td align="center">{{ sfp.sfp_mpn.optical_type }}</td>
+				<td align="center">{{ sfp.sfp_mpn.vendor|upper }}</td>
+				<td align="center">{{ sfp.sfp_owner }}</td>			
 				<td align="center">{{sfp.sfp_update_time}}</td>
 				<td><button type="button" class="btn btn-sm btn-success">Success</button></td>
 			</tr>
@@ -33,31 +37,6 @@
         </table>
        </p>
 
-
-       	  <p>
-	    <table id="example" class="row-border compact hover nowrap " cellspacing="0" width="100%">
-	      <thead>
-	        <tr>
-	          <th>SN</th>
-	          <th>MPN</th>
-	          <th>Optical Type</th>
-	          <th>IS Cisco Part</th>
-	          <th>Status</th>
-	        </tr>
-	      </thead>
-	      <tbody>
-		    {% for sfpvendor in sfpvendors %}
-		    <tr>
-		    	<td>{{ sfpvendor.vendor }}</td>
-		    	<td>{{ sfpvendor.mpn }}</td>
-		    	<td>{{ sfpvendor.optical_type }}</td>
-		    	<td>{{ sfpvendor.is_cisco_part }}</td>
-				<td><button type="button" class="btn btn-sm btn-success">Success</button></td>
-			</tr>
-		    {% endfor %}     
-          </tbody>
-        </table>
-       </p>
       <!-- </div>   -->
 {% endblock %}
 
