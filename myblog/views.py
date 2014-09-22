@@ -43,9 +43,5 @@ def sfp_tracking(request):
     sfpcount["in_store"] = temp.count()
     temp = sfps.exclude(sfp_owner_id = 1)
     sfpcount["in_crossteam"] = temp.count()
-    # sfpcount_total = sfps.count()
-    # sfpcount_in_store = "10"
-    # sfpcount_in_crossteam = "20"
-    # sfpcount = [sfpcount_total,sfpcount_in_store,sfpcount_in_crossteam]
     return render_to_response("sfp_tracking.html", {"sfps": sfps, "sfpvendors": sfpvendors, "sfpcount":sfpcount})
 
