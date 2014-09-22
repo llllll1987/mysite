@@ -41,7 +41,7 @@ $(document).ready(function() {
 	      <tbody>
 		    {% for sfp in sfps %}
 		    <tr>
-		    	<td align="center">{{ sfp.sfp_sn }}</td>
+		    	<td align="center"><a href="/admin/myblog/sfp/{{ sfp.id }}/">{{ sfp.sfp_sn }}</a></td>
 				<td align="center">{{ sfp.sfp_mpn }}</td>
 				<td align="center">{{ sfp.sfp_mpn.optical_type }}</td>
 				<td align="center">{{ sfp.sfp_mpn.vendor|upper }}</td>
