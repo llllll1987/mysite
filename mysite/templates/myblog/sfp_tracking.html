@@ -39,7 +39,10 @@ SFP In Cross-Function Team Count: <span class="label label-primary">{{ sfpcount.
 <div class="col-sm-8 col-md-8 half_2">
 <h3>Record History</h3>
 <p>
-<span class="label label-info">2014/09/21</span>  Received SUMITOMO EX and ZX Modules. <button class="btn btn-success btn-xs" type="button"><span class="badge">+4</span></button></br>
+<span class="label label-info">2014/09/21</span>  Received SUMITOMO EX and ZX Modules. <button class="btn btn-success btn-xs" type="button"><span class="badge">4</span></button></br>
+{% for record in records %}
+<span class="label label-info">{{record.log_date|date:"Y/m/j"}}</span>  {{record.log_note}}  <span class="label label-primary">{{record.log_person}}</span> <button class="btn btn-success btn-xs" type="button"><span class="badge">{{record.log_count}}</span></button> </br>
+{% endfor %}
 </p>
 </div>
 

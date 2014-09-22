@@ -2,7 +2,7 @@
 # Create your views here.
 
 from django.shortcuts import render_to_response,HttpResponse
-from myblog.models import Blog,Zhiwei_CMC_Board,CMC_Board,SFPVendor,SFP
+from myblog.models import Blog,Zhiwei_CMC_Board,CMC_Board,SFPVendor,SFP,Record_log
 
 
 def blog_list(request):
@@ -38,10 +38,11 @@ def board_tracking(request):
 def sfp_tracking(request):
     sfps = SFP.objects.all()
     sfpvendors = SFPVendor.objects.all()
+    records = Record_log.objects.all()
     sfpcount = {"total":sfps.count()}
     temp = sfps.filter(sfp_owner_id = 1)
     sfpcount["in_store"] = temp.count()
     temp = sfps.exclude(sfp_owner_id = 1)
     sfpcount["in_crossteam"] = temp.count()
-    return render_to_response("sfp_tracking.html", {"sfps": sfps, "sfpvendors": sfpvendors, "sfpcount":sfpcount})
+    return render_to_response("sfp_tracking.html", {"sfps": sfps, "sfpvendors": sfpvendors, "sfpcount":sfpcount,"records":records})
 
