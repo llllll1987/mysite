@@ -41,6 +41,12 @@ class SFPVendorAdmin(admin.ModelAdmin):
     ordering = ('vendor',)
     search_fields = ('mpn',)
 
+class LogAdmin(admin.ModelAdmin):
+    """docstring for BlogAdmin"""
+    list_display = ('log_date','log_mode','log_count' ,'log_note','log_person')
+    ordering = ('-log_date',)
+    search_fields = ('log_note',)
+
 
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(Blog, BlogAdmin)
@@ -48,6 +54,9 @@ admin.site.register(Tag)
 admin.site.register(CMC_Board,CMC_Board_Admin)
 admin.site.register(SFPVendor,SFPVendorAdmin)
 admin.site.register(SFP,SFPAdmin)
+admin.site.register(Record_log,LogAdmin)
+
+
 
 
 

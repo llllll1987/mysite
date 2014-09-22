@@ -80,5 +80,22 @@ class SFP(models.Model):
     def __unicode__(self):
         return u'%s %s' % (self.sfp_sn, self.sfp_owner)
 
+INC_DEC_CHOICES = (
+    ('I', 'Increase'),
+    ('D', 'Decrease'),
+)
+
+class Record_log(models.Model):
+    """docstring for Boards"""
+    log_date = models.DateField()
+    log_mode = models.CharField(max_length=1,choices=INC_DEC_CHOICES)
+    log_count = models.IntegerField()
+    log_note = models.CharField(max_length=80)
+    log_person = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return u'%s %s' % (self.log_mode, self.log_count)
+
+
 
 
