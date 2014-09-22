@@ -22,14 +22,28 @@ $(document).ready(function() {
 {% block BoardList %} 
 <p>
 <h2 class="sub-header">C-Docsis 1.1 SFP Status Tracking</h2>
-<a href="/admin/myblog/sfp/" class="btn btn-primary" role="button">Add New SFP Module ...</a>
-<a href="/admin/myblog/sfpvendor/" class="btn btn-info" role="button">Add New SFP Vendor Type ...</a>
 </p>
 
-Summary: </br>
-SFP Modules Count: {{ sfpcount.total }}  </br>
-SFP In Store Count: {{ sfpcount.in_store }}	</br>
-SFP In Cross-Function Team Count: {{ sfpcount.in_crossteam }}	</br>
+<div class="col-sm-4 col-md-4 half_1">
+<h3>Summary:</h3> 
+<p>
+SFP Modules Total Count: <span class="label label-primary">{{ sfpcount.total }} </span> </br>
+SFP In Store Count:<span class="label label-primary">{{ sfpcount.in_store }} </span>	</br>
+SFP In Cross-Function Team Count: <span class="label label-primary">{{ sfpcount.in_crossteam }} </span>	</br>
+
+<a href="/admin/myblog/sfp/" class="btn btn-success btn-sm" role="button">Add New SFP <span class="badge">1</span></a> 
+<a href="/admin/myblog/sfpvendor/" class="btn btn-success btn-sm" role="button">Add New Vendor <span class="badge">1</span></a>
+</p>
+</div>
+
+<div class="col-sm-8 col-md-8 half_2">
+<h3>Record History</h3>
+<p>
+<span class="label label-info">2014/09/21</span>  Received SUMITOMO EX and ZX Modules. <button class="btn btn-success btn-xs" type="button"><span class="badge">+4</span></button></br>
+</p>
+</div>
+
+
 	  <p>
 	    <table id="sfp_tracking_table" class="row-border compact hover nowrap " cellspacing="0" width="100%">
 	      <thead>
