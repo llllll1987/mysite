@@ -38,7 +38,7 @@ def board_tracking(request):
 def sfp_tracking(request):
     sfps = SFP.objects.all()
     sfpvendors = SFPVendor.objects.all()
-    records = Record_log.objects.all()
+    records = Record_log.objects.order_by('-log_date')[:6]
     sfpcount = {"total":sfps.count()}
     temp = sfps.filter(sfp_owner_id = 1)
     sfpcount["in_store"] = temp.count()
