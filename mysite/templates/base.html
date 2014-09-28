@@ -30,7 +30,7 @@
 <script type="text/javascript" language="javascript" class="init">
 
 $(document).ready(function() {
-  $('#example').dataTable({
+  $('#board_tracking_table').dataTable({
         lengthChange: false,
         "pageLength": 30,
         "autoWidth": false,
@@ -53,12 +53,12 @@ $(document).ready(function() {
 
 </script>
 
-
 <script type="text/javascript" language="javascript" class="init">
 
 $(document).ready(function() {
   $('#sfp_tracking_table').dataTable({
         lengthChange: false,
+        "order": [ 5, 'desc' ],
         "pageLength": 30,
         "autoWidth": false,
         "columnDefs": [
@@ -69,6 +69,8 @@ $(document).ready(function() {
 } );
 
 </script>
+
+
 
     <title>{% block title %}  {% endblock %}</title>
 </head>

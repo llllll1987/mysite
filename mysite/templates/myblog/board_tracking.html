@@ -1,22 +1,6 @@
 {% extends "base.html" %}
 
 
-<script type="text/javascript" language="javascript" class="init">
-
-$(document).ready(function() {
-  $('#board_tracking_table').dataTable({
-        lengthChange: false,
-        "pageLength": 30,
-        "autoWidth": false,
-        "columnDefs": [
-            { "targets": [ 5 ],
-              "width": "20%",
-              "orderable": false  }]
-  });
-} );
-
-</script>
-
 {% block title %}  CMC Board Tracking list {% endblock %}
 
 {% block BoardList %} 
@@ -43,11 +27,11 @@ $(document).ready(function() {
 
     {% for board in cmc_boards %}
     <tr>
-    	<td align="center">{{ board.cmc_sn }}</td>
+    	<td align="center"><a href="/admin/myblog/cmc_board/{{ board.id }}/">{{ board.cmc_sn }}</a></td>
 		<td align="center">{{ board.cmc_lab_ref }}</td>
 		<td>{{ board.cmc_mac }}</td>
 		<td align="center">{{ board.cmc_owner }}</td>
-		<td align="center">{{board.update_time}}</td>
+		<td align="center">{{board.update_time|date:"Y/m/j"}}</td>
 		<td><button type="button" class="btn btn-sm btn-success">Success</button></td>
 	</tr>
     {% endfor %}     
