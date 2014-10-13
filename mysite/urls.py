@@ -23,6 +23,6 @@ urlpatterns = patterns('',
     url(r'^zhiwei_board_list/$',zhiwei_board_list,name = 'zhiwei_board_list'),
     url(r'^board_tracking/$',board_tracking,name = 'board_tracking'),
     url(r'^sfp_tracking/$',sfp_tracking,name = 'sfp_tracking'),
-    url(r'^debugcmd/$',debug_cmd,name = 'debug_cmd'),
+    url(r'^bulk_change_sfp_owner/$',bulk_change_sfp_owner,name = 'bulk_change_sfp_owner'),
 
 )

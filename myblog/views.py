@@ -47,8 +47,8 @@ def sfp_tracking(request):
     return render_to_response("sfp_tracking.html", {"sfps": sfps, "sfpvendors": sfpvendors, "sfpcount":sfpcount,"records":records})
 
 
-def debug_cmd(request):
-    input_string = 'FNS183815VR SPC18330309 FNS183815U9 EAD2012243 SPC183301KQ SPC183301KP SPC183301KN SPC183301KM SPC183301KL FNS18340YEL'
+def bulk_change_sfp_owner(request):
+    input_string = 'NSZ18380247 FNS183815X8 NSZ18190742 AGM183500EE SPC183104F3 NSZ18190348 SPC183104F5 E4T2006845 SPC183104F4 E4T2006825 EAD2012239 FNS18340YDC NSZ18380599 AGM183500E5 AGM183500ED FNS18340YGD FNS18381G2U FNS183815VR SPC18330309 FNS183815U9 EAD2012243 SPC183301KQ SPC183301KP SPC183301KN SPC183301KM SPC183301KL FNS18340YEL'
     sfp_sn_list = input_string.split()
 
     sfp_all = SFP.objects.all()
@@ -58,13 +58,9 @@ def debug_cmd(request):
 
     for temp_sfp_sn in sfp_sn_list:
         temp_sfp = sfp_all.get(sfp_sn= temp_sfp_sn)
-        print temp_sfp
-        temp_sfp.owner = newsfp_owner
-        print temp_sfp.owner
+        temp_sfp.sfp_owner = newsfp_owner
         temp_sfp.save()
-        temp_sfp.delete()
-        print temp_sfp
         change_count = change_count + 1
-    html = "<html><body>temp_sfp is %s </body></html>" % temp_sfp
+    html = "<html><body>Totally %s Models changed success! </body></html>" % change_count
     return HttpResponse(html)
 
