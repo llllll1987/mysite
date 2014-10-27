@@ -48,12 +48,12 @@ def sfp_tracking(request):
 
 
 def bulk_change_sfp_owner(request):
-    input_string = 'NSZ18330822 NSZ18190610 SPC18330308 FNS18381955 AGM183500E6 FNS18340YD9 SPC183104F2 EAD2012255 EAK2000987'
+    input_string = 'FNS18340YE3 AGM183500EC EAK2000994 EAK2000984 SPC183502ZD FNS183815X3 SPC18330307 SPC18330306 NSZ18340310 NSZ18110814 E4T2006908 EA22009544'
     sfp_sn_list = input_string.split()
 
     sfp_all = SFP.objects.all()
     owner_all = Author.objects.all()
-    newsfp_owner = owner_all.get(name = 'guyin')
+    newsfp_owner = owner_all.get(name = 'xinxwu')
     change_count = 0
 
     for temp_sfp_sn in sfp_sn_list:
