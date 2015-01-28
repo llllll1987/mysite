@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+
+
+{% block title %}  Change SFP Owner {% endblock %}
+
+{% block BoardList %} 
+
+<form role="form" method="post"> {% csrf_token %}
+  <div class="form-group">
+    <label for="sfp_owner">Owner user id</label>
+    <input type="text" class="form-control" name="sfp_owner" placeholder="Enter Owner">
+  </div>
+  <div class="form-group">
+    <label for="sfp_sn">SFP SN List</label>
+    <textarea class="form-control" name="sfp_sn" rows="10"></textarea>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+
+</form>
+
+{% endblock %}
+
+
+
+
